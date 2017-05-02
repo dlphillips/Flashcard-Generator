@@ -1,3 +1,16 @@
+function ClozeCard(text, cloze) {
+    if (!this instanceof ClozeCard) {
+        return new ClozeCard(text, cloze);
+    }
+	this.text = text;
+	this.cloze = cloze;
+	this.ccard = function() {
+		console.log(this.text);
+		console.log(this.cloze);
+		var clozeText = this.text.replace(this.cloze,'...');
+		console.log(clozeText);
+	}
+}
 
 // This file should define a Node module that exports a constructor for creating cloze-deletion flashcards, e.g.: module.exports = ClozeCard; 
 // The constructor should accept two arguments: text and cloze.
