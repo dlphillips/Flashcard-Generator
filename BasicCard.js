@@ -11,3 +11,4 @@ function BasicCard(front, back) {
 }
 
 module.exports = BasicCard;
+

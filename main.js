@@ -1,3 +1,6 @@
+
+// push questions into arrays FROM OBJECTS for each and play game. hard code questions & answers or store in external file.
+
 var inquirer = require('inquirer'); //for use later
 var BasicCard = require('./BasicCard.js');
 var ClozeCard = require('./ClozeCard.js');

@@ -5,10 +5,10 @@ function ClozeCard(text, cloze) {
 	this.text = text;
 	this.cloze = cloze;
 	this.ccard = function() {
-		console.log(this.text);
-		console.log(this.cloze);
+		// console.log(this.text);
 		var clozeText = this.text.replace(this.cloze,'...');
 		console.log(clozeText);
+		console.log(this.cloze);
 	}
 }
 
