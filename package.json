@@ -1,0 +1,28 @@
+{
+  "name": "flashcards",
+  "version": "1.0.0",
+  "description": "node flashcard app",
+  "main": "main.js",
+  "dependencies": {
+    "csv-to-array": "^1.0.2",
+    "inquirer": "^3.0.6",
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node CLI_Basic, node CLI_Cloze"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlphillips/Flashcard-Generator.git"
+  },
+  "keywords": [
+    "flashcards",
+    "constructors"
+  ],
+  "author": "Dan Phillips",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dlphillips/Flashcard-Generator/issues"
+  },
+  "homepage": "https://github.com/dlphillips/Flashcard-Generator#readme"
+}

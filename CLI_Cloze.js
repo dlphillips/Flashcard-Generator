@@ -1,25 +1,44 @@
 // push questions into arrays FROM OBJECTS for each and play game. hard code questions & answers or store in external file.
 
-var inquirer = require('inquirer'); //for use later
+var columns = ["question", "answer"];
+var inquirer = require('inquirer');
 var ClozeCard = require('./ClozeCard.js');
+var csvFile = 'clozeCards.csv';
 
-// var firstPresident = new BasicCard("Who was the first president of the United States?", "George Washington");
-// firstPresident.showcard();
+var i = 0;
+var newCard = [];
 
+var columns = ["question", "answer"];
 
-var newCard = new ClozeCard('The country Canada has more than half of all the natural lakes in the world.', 'Canada');
-newCard.ccard();
-var newCard = new ClozeCard('Australia is the flattest continent.', 'Australia');
-newCard.ccard();
-var newCard = new ClozeCard('Saudi Arabia is the largest country on the Arabian Peninsula.', 'Saudi Arabia');
-newCard.ccard();
-var newCard = new ClozeCard('The country Chile accounts for more than half of the western coastline of South America.', 'Chile');
-newCard.ccard();
-var newCard = new ClozeCard('Sudan is the African nation with the most pyramids.', 'Sudan');
-newCard.ccard();
-var newCard = new ClozeCard('Africa is the only continent with land in all four hemispheres.', 'Africa');
-newCard.ccard();
-var newCard = new ClozeCard('Brazil is the most populated nation in South America.', 'Brazil');
-newCard.ccard();
-var newCard = new ClozeCard('Russia is the largest country in the world in terms of land area.', 'Russia');
-newCard.ccard();
+require("csv-to-array")({
+    file: csvFile,
+    columns: columns
+}, function(err, array) {
+    cardTime(array);
+});
+
+function cardTime(cardObj) {
+    newCard[i] = new ClozeCard(cardObj[i].question, cardObj[i].answer);
+    cQuestion = newCard[i].cloze;
+
+    var questions = [{
+        type: "input",
+        name: "getAnswer",
+        message: cQuestion
+    }];
+
+    inquirer.prompt(questions).then(function(answers) {
+
+        if (answers.getAnswer === newCard[i].partial) {
+            console.log('Correct, you are smart!');
+        } else {
+        	console.log('Sorry, but...');
+            console.log(newCard[i].fullText);
+        }
+        i++;
+        if (i < cardObj.length) {
+            cardTime(cardObj);
+        }
+    });
+
+}
