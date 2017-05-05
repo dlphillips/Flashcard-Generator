@@ -1,3 +1,4 @@
+// include chalk package & declare colors to make console.log pretty
 var chalk = require('chalk');
 
 var boldYellow = chalk.bold.bgYellow;
@@ -17,4 +18,4 @@ function BasicCard(front, back) {
     }
 }
 
-module.exports = BasicCard;
+module.exports = BasicCard; // make results available to Basic.js
