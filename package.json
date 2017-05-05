@@ -4,12 +4,13 @@
   "description": "node flashcard app",
   "main": "main.js",
   "dependencies": {
+    "chalk": "^1.1.3",
     "csv-to-array": "^1.0.2",
-    "inquirer": "^3.0.6",
+    "inquirer": "^3.0.6"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node CLI_Basic, node CLI_Cloze"
+    "test": "node Basic, node Cloze"
   },
   "repository": {
     "type": "git",

@@ -1,14 +1,11 @@
-// push questions into arrays FROM OBJECTS for each and play game. hard code questions & answers or store in external file.
-
-var columns = ["question", "answer"];
 var inquirer = require('inquirer');
 var ClozeCard = require('./ClozeCard.js');
+
+var columns = ["question", "answer"];
 var csvFile = 'clozeCards.csv';
 
 var i = 0;
 var newCard = [];
-
-var columns = ["question", "answer"];
 
 require("csv-to-array")({
     file: csvFile,
@@ -18,8 +15,9 @@ require("csv-to-array")({
 });
 
 function cardTime(cardObj) {
+	console.log('');
     newCard[i] = new ClozeCard(cardObj[i].question, cardObj[i].answer);
-    cQuestion = newCard[i].cloze;
+    cQuestion = newCard[i].partial;
 
     var questions = [{
         type: "input",
@@ -29,11 +27,10 @@ function cardTime(cardObj) {
 
     inquirer.prompt(questions).then(function(answers) {
 
-        if (answers.getAnswer === newCard[i].partial) {
-            console.log('Correct, you are smart!');
+        if (answers.getAnswer === newCard[i].cloze) {
+            newCard[i].correctAnswer();
         } else {
-        	console.log('Sorry, but...');
-            console.log(newCard[i].fullText);
+            newCard[i].wrongAnswer();
         }
         i++;
         if (i < cardObj.length) {
